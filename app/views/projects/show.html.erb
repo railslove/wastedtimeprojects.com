@@ -1,0 +1,53 @@
+<p>
+  <b>Name:</b>
+  <%=h @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @project.description %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @project.url %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=h @project.location %>
+</p>
+
+<p>
+  <b>Owner name:</b>
+  <%=h @project.owner_name %>
+</p>
+
+<p>
+  <b>Preview file name:</b>
+  <%=h @project.preview_file_name %>
+</p>
+
+<p>
+  <b>Preview content type:</b>
+  <%=h @project.preview_content_type %>
+</p>
+
+<p>
+  <b>Preview file size:</b>
+  <%=h @project.preview_file_size %>
+</p>
+
+<p>
+  <b>Preview updated at:</b>
+  <%=h @project.preview_updated_at %>
+</p>
+
+<p>
+  <b>Access key:</b>
+  <%=h @project.access_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

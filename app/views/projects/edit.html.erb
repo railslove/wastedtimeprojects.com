@@ -1,0 +1,52 @@
+<h1>Editing project</h1>
+
+<% form_for(@project) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label :owner_name %><br />
+    <%= f.text_field :owner_name %>
+  </p>
+  <p>
+    <%= f.label :preview_file_name %><br />
+    <%= f.text_field :preview_file_name %>
+  </p>
+  <p>
+    <%= f.label :preview_content_type %><br />
+    <%= f.text_field :preview_content_type %>
+  </p>
+  <p>
+    <%= f.label :preview_file_size %><br />
+    <%= f.text_field :preview_file_size %>
+  </p>
+  <p>
+    <%= f.label :preview_updated_at %><br />
+    <%= f.datetime_select :preview_updated_at %>
+  </p>
+  <p>
+    <%= f.label :access_key %><br />
+    <%= f.text_field :access_key %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @project %> |
+<%= link_to 'Back', projects_path %>
