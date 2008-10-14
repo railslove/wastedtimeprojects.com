@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>don't forget the wurst</title>
+  <%= stylesheet_link_tag 'basics' %>
+	<%= javascript_include_tag  :all,
+	                            :cache => true %>
+</head>
+<body>
+	<div id="header">
+		<h1 id="wurst"><a href="/">wastedtimeprojects<span id="com">.com</span></a></h1>
+	</div>
+	<div id="anotherline"></div>
+	
+	<div id="action_links_box">
+		<div id="action_links">
+			<%= link_to 'ADD your project', new_project_url, :class=>"action_link" %> &bull;
+		</div>
+	</div>
+	
+	<% %w{error notice ok}.each do |type| %>
+    <% unless flash[type.to_sym].blank? %>
+      <div class="flash <%= type %>" style="display:none">
+        <% if flash[type.to_sym].is_a?(ActiveRecord::Errors) %>
+          <%= error_messages_for(flash[type.to_sym]) %>
+        <% else %>
+          <%= flash[type.to_sym] %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+	
+	<%= yield  %>
+
+	<div id="footer">	
+		<p><span>a 2008 <a href="http://wastedtimeprojects.com" title="Wasted time project">wasted time</a> project</span><br /><span>brought to you by <a href="http://railslove.com/" title="Railslove - web love building web applications">Railslove</a></p>	
+	</div>
+
+	<% if RAILS_ENV == "production" %>
+	<% end %>
+</body>
+</html>
