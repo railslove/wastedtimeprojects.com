@@ -1,0 +1,6 @@
+<div class="comment" id="<%= dom_id comment %>">
+	<div class="meta author">
+		<%= comment.url.blank? ? h(comment.name) : link_to(h(comment.name), h(comment.url)) %> says:
+	</div>
+	<%= simple_format auto_link(h(comment.body)) %>
+</div>
