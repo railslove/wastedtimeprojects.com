@@ -7,6 +7,7 @@ class ProjectsController < ResourceController::Base
       format.html 
       format.xml  { render :xml => @projects }
       format.js { render :json => @projects, :callback => params[:callback]}
+      format.rss 
     end
   end
   
