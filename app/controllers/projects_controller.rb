@@ -44,11 +44,13 @@ class ProjectsController < ResourceController::Base
   
   def edit
     @project = Project.find_by_access_key(params[:access_key])
+    raise ActiveRecord::RecordNotFound unless @project
   end
   
   def update
     @project = Project.find_by_access_key(params[:access_key])
-    
+    raise ActiveRecord::RecordNotFound unless @project
+        
     respond_to do |format|
        if @project.update_attributes(params[:project])
          format.html { 
@@ -67,6 +69,7 @@ class ProjectsController < ResourceController::Base
   
   def destroy
     @project = Project.find_by_access_key(params[:access_key])
+    raise ActiveRecord::RecordNotFound unless @project
     @project.destroy
     flash[:notice] = "Project got deleted"
     redirect_to project_url(@project)
