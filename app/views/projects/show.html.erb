@@ -1,19 +1,29 @@
 <h2><%= h @project.name %></h2>
+
+<% unless @project.url.blank? %>
+	<h3 class="additional"><%= link_to h(@project.url), h(@project.url) %></h3>
+<% end %>
+
 <div class="meta author">
-	by <%= h @project.owner_name %> <%= link_to h(@project.owner_url), h(@project.owner_url) %>
+	by <%= h @project.owner_name %> <%= link_to h(@project.owner_url), h(@project.owner_url) %> <% unless @project.location.blank? %><%= h @project.location %> <% end %>
 </div>
+
 <div class="description">
-	<%= truncate( h(project.description) ) unless project.description.blank? %>
-	<%= auto_link simple_format(h(@project.description)) %>
+	<%= image_tag @project.preview.url(:medium), :alt => h(@project.name), :class=>"preview" %>
+	<%= simple_format auto_link(h(@project.description))  unless @project.description.blank? %>
 </div>
 
 <div class="comments">
 	<%= render :partial => @project.comments %>
 </div>
+
 <% form_for Comment.new do |f| %>
-	<%= f.text_fild :name %>
-	<%= f.text_fild :url %>
-	<%= f.text_area :body %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :url %>
+	<%= f.text_field :url %>
+	<%= f.label :body %>
+	<%= f.text_area :body, :rows => 4 %>
 	<%= f.submit %>
 <% end %>
 	

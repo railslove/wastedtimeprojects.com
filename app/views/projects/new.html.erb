@@ -1,34 +1,38 @@
 <%= error_messages_for :project %>
 	
-<% form_for @project do |f| %>
+<% form_for @project, :html => {:multipart => true} do |f| %>
 	<fieldset>
 		<legend>About your project</legend>
 		<div class="name">
 			<label for="project_name">Name</label>
-			<%= f.text_field :name, :class => "login_fields" %>
+			<%= f.text_field :name, :class => "" %>
 		</div>
 		<div class="description">
 			<label for="project_description">Description</label>
-			<%= f.text_area :description, :class => "login_fields", :rows=>3 %>
+			<%= f.text_area :description, :class => "", :rows=>3 %>
+		</div>
+		<div class="location">
+			<label for="project_location">Where did you craft it?</label>
+			<%= f.text_field :location, :class => "" %>
 		</div>
 		<div class="url">
 			<label for="project_url">URL</label>
-			<%= f.text_field :url, :class => "login_fields" %>
+			<%= f.text_field :url, :class => "" %>
 		</div>
 		<div class="picture">
 			<label for="project_preview">Picture</label>
-			<%= f.file_field :preview, :class => "login_fields" %>
+			<%= f.file_field :preview, :class => "" %>
 		</div>
 	</fieldset>
 	<fieldset>
 		<legend>About you</legend>
 		<div class="name">
 			<label for="project_owner_name">your Name</label>
-			<%= f.text_field :owner_name, :class => "login_fields" %>
+			<%= f.text_field :owner_name, :class => "" %>
 		</div>
 		<div class="name">
-			<label for="project_owner_email">your Email</label>
-			<%= f.text_field :owner_email, :class => "login_fields" %>
+			<label for="project_owner_email">your email</label>
+			<%= f.text_field :owner_email, :class => "" %>
 		</div>
 		<%= f.submit "Save" %>
 	</fieldset>

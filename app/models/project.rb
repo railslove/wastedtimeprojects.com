@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   
   validates_presence_of :name, :owner_name, :owner_email
   
-  has_attached_file :preview, :styles => { :medium => "300x300>", :thumb => "100x100#" }
+  has_attached_file :preview, :styles => { :full => "640x480>", :medium => "300x300>", :thumb => "100x100#", :mini => "50x50#" }
   make_permalink :with => :name, :prepend_id => true
   
   before_create :insert_access_key

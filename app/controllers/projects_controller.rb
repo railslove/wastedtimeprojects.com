@@ -1,7 +1,7 @@
 class ProjectsController < ResourceController::Base
   
   def index
-    @projects = Project.paginate(:all, :page => params[:page])
+    @projects = Project.paginate(:all, :page => params[:page], :order => "projects.created_at DESC")
     
     respond_to do |format|
       format.html 

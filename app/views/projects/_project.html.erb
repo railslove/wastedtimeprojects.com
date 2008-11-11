@@ -1,5 +1,5 @@
 <div id="<%= dom_id project %>" class="project">
-	<h3><%= link_to h(project.name), project_url(project) %></h3>
+	<h3><%= link_to("#", h(project.url) ) unless project.url.blank? %> <%= link_to h(project.name), project_url(project) %></h3>
 	<div class="description">
 		<%= image_tag project.preview.url(:medium), :alt => h(project.name), :class=>"preview" %>
 		<%= truncate( h(project.description) ) unless project.description.blank? %>

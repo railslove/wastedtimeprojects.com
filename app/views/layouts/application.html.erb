@@ -12,7 +12,8 @@
 
 <body>
 	<div id="header">
-		<h1 id="logo"><a href="/">wastedtimeprojects<span id="com">.com</span></a></h1>
+		<h1 id="logo"><%= link_to "wasted time projects", root_url %></h1>
+		<h2 id="tag_line">gallery of great stuff that got born while wasting time.</h2>
 		<ul id="navigation">
 			<li><%= link_to 'ADD your project', new_project_url, :class=>"action_link" %></li>
 		</ul>
